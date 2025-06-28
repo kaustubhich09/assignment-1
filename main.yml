@@ -1,0 +1,13 @@
+---
+- name: Install Docker
+  amazon.aws.ec2_instance_facts:
+  become: true
+  yum:
+    name: docker
+    state: present
+
+- name: Start and enable Docker
+  service:
+    name: docker
+    state: started
+    enabled: yes
